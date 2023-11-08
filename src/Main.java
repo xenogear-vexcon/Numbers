@@ -39,6 +39,11 @@ public class Main {
 
         System.out.println("Количество несовершеннолетних: " + persons.stream().filter(e -> e.getAge() < 18).count());
         persons.stream().filter(e -> e.getAge() <= 27).filter(e -> e.getAge() >= 18).map(e -> e.getFamily()).collect(Collectors.toList());
-        persons.stream().filter(e -> e.getEducation() == Education.HIGHER).filter(e -> e.getAge() >= 18).filter(e -> e.getSex() == Sex.MAN ? e.getAge() < 65 : e.getAge() < 60).sorted(Comparator.comparing(Person::getFamily)).collect(Collectors.toList());
+        persons.stream()
+            .filter(e -> e.getEducation() == Education.HIGHER)
+            .filter(e -> e.getAge() >= 18)
+            .filter(e -> e.getSex() == Sex.MAN ? e.getAge() < 65 : e.getAge() < 60)
+            .sorted(Comparator.comparing(Person::getFamily))
+            .collect(Collectors.toList());
     }
 }
